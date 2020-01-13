@@ -136,13 +136,24 @@ a {
 }
 
 .starContainer {
-  width: 50em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  /* width: 40em; */
   height: 10em;
 }
 
 .rateStar {
+  background-image: url("./Black_star_hollow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 7em;
   height: 7em;
+}
+
+.rateStar:hover ~ .rateStar,
+.rateStar:hover {
+  background-image: url("./Black_star.svg");
 }
 
 .addLoadContainer {
