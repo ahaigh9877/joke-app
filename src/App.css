@@ -13,6 +13,7 @@
   height: 10em;
   border: 0.5em solid black;
   border-radius: 10em;
+  background-color: white;
   transition: 0.2s;
 }
 
@@ -23,7 +24,72 @@
   transition: 0.2s;
 }
 
-.randomJokeLinkText {
-  transform: none;
-  transition: none;
+.linkLine {
+  z-index: -1;
+}
+
+.linkBarOne {
+  position: fixed;
+  top: 22em;
+  left: 50%;
+  width: 0.5em;
+  height: 5em;
+  transform: rotate(-45deg);
+  z-index: -1;
+  background-color: black;
+}
+
+.linkBarTwo {
+  position: fixed;
+  top: 18em;
+  left: 78%;
+  width: 0.5em;
+  height: 10em;
+  transform: rotate(30deg);
+  z-index: -1;
+  background-color: black;
+}
+
+.addJokeLink {
+  position: fixed;
+  top: 15em;
+  left: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+  height: 8em;
+  border: 0.5em solid black;
+  background-color: white;
+  border-radius: 8em;
+  transition: 0.2s;
+}
+
+.addJokeLink:hover {
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+.jokeListLink {
+  position: fixed;
+  top: 13em;
+  right: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  height: 7em;
+  border: 0.5em solid black;
+  background-color: white;
+  border-radius: 7em;
+  transition: 0.2s;
+}
+
+.jokeListLink:hover {
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(1.2);
+  transition: 0.2s;
 }
