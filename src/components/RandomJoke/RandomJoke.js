@@ -2,7 +2,7 @@ import React from "react";
 
 const RandomJoke = props => {
   return (
-    <div>
+    <div className="jokeContainer">
       <h1>{props.line}</h1>
     </div>
   );

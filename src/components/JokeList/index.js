@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class JokeListContainer extends Component {
   render() {
-    return <div></div>;
+    return <div className="background"></div>;
   }
 }
 

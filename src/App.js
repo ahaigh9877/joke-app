@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Route exact path="/" component={MainPage} />
       <Route exact path="/randomjoke" component={RandomJokeContainer} />
-      <Route exact path="/addjoke" component={AddJokeForm} />
+      <Route exact path="/addjokeform" component={AddJokeForm} />
       <Route exact path="/jokelist" component={JokeList} />
     </div>
   );

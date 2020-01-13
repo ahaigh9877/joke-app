@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import request from "superagent";
+
 import RandomJoke from "./RandomJoke";
 import RateJokeContainer from "../RateJoke";
 
@@ -25,24 +27,31 @@ class randomJokeContainer extends Component {
   }
   render() {
     return (
-      <div>
-        {this.state.setup && this.state.seconds < 3 && (
-          <RandomJoke line={this.state.setup} />
-        )}
-        {this.state.punchline && this.state.seconds >= 3 && (
-          <>
-            <RandomJoke line={this.state.punchline} />
-            <div>
-              {this.state.seconds > 5 && (
-                <div>
-                  <p>did you like this joke...?</p>
-                  <RateJokeContainer jokeId={this.state.jokeId} />
-                </div>
-              )}
-            </div>
-          </>
-        )}
-      </div>
+      <>
+        <Link className="backLink" to={"/"}>
+          back to
+          <br />
+          main page
+        </Link>
+        <div className="randomJokeContainer">
+          {this.state.setup && this.state.seconds < 3 && (
+            <RandomJoke line={this.state.setup} />
+          )}
+          {this.state.punchline && this.state.seconds >= 3 && (
+            <>
+              <RandomJoke line={this.state.punchline} />
+              <div>
+                {this.state.seconds > 5 && (
+                  <div className="ratingAndMore">
+                    <p>Rate this joke</p>
+                    <RateJokeContainer jokeId={this.state.jokeId} />
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      </>
     );
   }
 }

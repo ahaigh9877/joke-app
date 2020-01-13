@@ -16,11 +16,14 @@ class AddJokeFormContainer extends Component {
 
     const data = this.state;
     console.log("NEW JOKE DATA: ", data);
-
-    request
-      .post(`${baseUrl}/addjoke`)
-      .send(data)
-      .then(res => console.log(res.body));
+    if (this.state.setup && this.state.punchline) {
+      request
+        .post(`${baseUrl}/addjoke`)
+        .send(data)
+        .then(res => console.log(res.body));
+    } else {
+      console.log("empty shite");
+    }
 
     this.setState({
       setup: "",
@@ -29,7 +32,7 @@ class AddJokeFormContainer extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="background">
         <AddJokeForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}
