@@ -47,7 +47,7 @@ const addJokeForm = props => {
         borderWidth={8}
         borderColor="black"
         delay={true}
-        zIndex={-1}
+        zIndex={0}
       />
     </div>
   );

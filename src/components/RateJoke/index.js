@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import request from "superagent";
 import RateJoke from "./RateJoke";
-import AddJokeForm from "../AddJokeForm";
 
 const baseUrl = "http://localhost:4000";
 
 class RateJokeContainer extends Component {
-  state = { thisRating: null, avgRating: null };
+  state = { thisRating: null, avgRating: null, nrRatings: null };
 
   handleClick = rating => {
     const jokeId = this.props.jokeId;
@@ -17,7 +16,11 @@ class RateJokeContainer extends Component {
         .post(`${baseUrl}/ratings`)
         .send(ratingData)
         .then(res =>
-          this.setState({ thisRating: rating, avgRating: res.body.ratingsAvg })
+          this.setState({
+            thisRating: rating,
+            avgRating: res.body.ratingsAvg,
+            nrRatings: res.body.nrRatings
+          })
         )
         .catch(error => console.error(error));
     }
@@ -28,21 +31,29 @@ class RateJokeContainer extends Component {
   render() {
     return (
       <div className="background">
-        <RateJoke handleClick={this.handleClick} />
-        {this.state.avgRating && (
-          <div>
-            <p>your rating: {this.state.thisRating}</p>
-            <p>average rating: {this.state.avgRating.toFixed(2)}</p>
-            <div className="addLoadContainer">
-              <div className="loadButton" onClick={() => this.reloadPage()}>
-                Load another one?
-              </div>
-              <Link to={"/addjokeform"} className="addButton">
-                Add another one?
-              </Link>
-            </div>
+        <RateJoke
+          handleClick={this.handleClick}
+          rating={this.state.thisRating}
+        />
+        <div className="ratingStatsContainer">
+          {this.state.avgRating && (
+            <>
+              <p>your rating: {this.state.thisRating}</p>
+              <p>
+                average rating: {this.state.avgRating.toFixed(2)} from{" "}
+                {this.state.nrRatings}
+              </p>
+            </>
+          )}
+        </div>
+        <div className="addLoadContainer">
+          <div className="loadButton" onClick={() => this.reloadPage()}>
+            Load another one?
           </div>
-        )}
+          <Link to={"/addjokeform"} className="addButton">
+            Add another one?
+          </Link>
+        </div>
       </div>
     );
   }

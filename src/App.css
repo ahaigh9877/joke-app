@@ -15,6 +15,7 @@
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .randomJokeLink {
@@ -35,10 +36,6 @@ a {
 }
 
 .randomJokeLink:hover {
-  /* -webkit-transform: scale(0.2);
-  -ms-transform: scale(0.2);
-  transform: scale(1.2); */
-
   width: 11em;
   height: 11em;
   transition: 0.2s;
@@ -139,7 +136,6 @@ a {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  /* width: 40em; */
   height: 10em;
 }
 
@@ -154,6 +150,19 @@ a {
 .rateStar:hover ~ .rateStar,
 .rateStar:hover {
   background-image: url("./Black_star.svg");
+}
+
+.ratedStar {
+  background-image: url("./Black_star.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 7em;
+  height: 7em;
+}
+
+.ratingStatsContainer {
+  height: 6em;
+  border: 2px solid transparent;
 }
 
 .addLoadContainer {
@@ -178,7 +187,6 @@ a {
 .addButton:hover {
   background-color: white;
   color: black;
-  box-sizing: border-box;
 }
 
 .loadButton {
@@ -237,4 +245,13 @@ button {
   background-color: black;
   color: white;
   font-family: inherit;
+}
+
+.JokeBox {
+  width: 20em;
+  height: 4em;
+  border: 0.5em solid black;
+  margin: 1em auto;
+  padding: 0.3em;
+  background-color: whitesmoke;
 }
